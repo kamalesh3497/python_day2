@@ -1,0 +1,15 @@
+def generateparanthesis(n):
+    result=[]
+    generateparanthesisutill(n,n," ",result)
+    return result
+def generateparanthesisutill(left,right,temp,result):
+    if left==0 and right==0:
+        result.append(temp)
+        return
+    if left>0:
+        generateparanthesisutill(left-1,right,temp+'(',result)
+    if right>left:
+        generateparanthesisutill(left,right-1,temp+')',result)
+
+n=int(input("n="))
+print(generateparanthesis(n))
